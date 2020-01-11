@@ -1,0 +1,149 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pokemon">
+            <h2><span>Pokemon</span> {{pokemon.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{pokemon.name}}</span>
+                </dd>
+                <dt><span>Animation Time 0</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime0}}</span>
+                </dd>
+                <dt><span>Animation Time 1</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime1}}</span>
+                </dd>
+                <dt><span>Animation Time 2</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime2}}</span>
+                </dd>
+                <dt><span>Animation Time 3</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime3}}</span>
+                </dd>
+                <dt><span>Animation Time 4</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime4}}</span>
+                </dd>
+                <dt><span>Animation Time 5</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime5}}</span>
+                </dd>
+                <dt><span>Animation Time 6</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime6}}</span>
+                </dd>
+                <dt><span>Animation Time 7</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime7}}</span>
+                </dd>
+                <dt><span>Animation Time 8</span></dt>
+                <dd>
+                    <span>{{pokemon.animationTime8}}</span>
+                </dd>
+                <dt><span>Height</span></dt>
+                <dd>
+                    <span>{{pokemon.height}}</span>
+                </dd>
+                <dt><span>Model Height</span></dt>
+                <dd>
+                    <span>{{pokemon.modelHeight}}</span>
+                </dd>
+                <dt><span>Km Buddy Distance</span></dt>
+                <dd>
+                    <span>{{pokemon.kmBuddyDistance}}</span>
+                </dd>
+                <dt><span>Weight</span></dt>
+                <dd>
+                    <span>{{pokemon.weight}}</span>
+                </dd>
+                <dt><span>Model Scale</span></dt>
+                <dd>
+                    <span>{{pokemon.modelScale}}</span>
+                </dd>
+                <dt><span>Max CP</span></dt>
+                <dd>
+                    <span>{{pokemon.maxCP}}</span>
+                </dd>
+                <dt><span>Cylinder Ground</span></dt>
+                <dd>
+                    <span>{{pokemon.cylinderGround}}</span>
+                </dd>
+                <dt><span>Cylinder Radius</span></dt>
+                <dd>
+                    <span>{{pokemon.cylinderRadius}}</span>
+                </dd>
+                <dt><span>Disk Radius</span></dt>
+                <dd>
+                    <span>{{pokemon.diskRadius}}</span>
+                </dd>
+                <dt><span>Key</span></dt>
+                <dd>
+                    <span>{{pokemon.key}}</span>
+                </dd>
+                <dt><span>Cinematic Moves Id</span></dt>
+                <dd>
+                    <span>{{pokemon.cinematicMovesId}}</span>
+                </dd>
+                <dt><span>Base Attack</span></dt>
+                <dd>
+                    <span>{{pokemon.baseAttack}}</span>
+                </dd>
+                <dt><span>Base Defense</span></dt>
+                <dd>
+                    <span>{{pokemon.baseDefense}}</span>
+                </dd>
+                <dt><span>Base Stamina</span></dt>
+                <dd>
+                    <span>{{pokemon.baseStamina}}</span>
+                </dd>
+                <dt><span>Buddy Size</span></dt>
+                <dd>
+                    <div *ngIf="pokemon.buddySize">
+                        <a [routerLink]="['/buddy-size', pokemon.buddySize?.id, 'view']">{{pokemon.buddySize?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Cinematic Moves Many</span></dt>
+                <dd>
+                    <span *ngFor="let cinematicMovesMany of pokemon.cinematicMovesManies; let last = last">
+                        <a [routerLink]="['/cinematic-moves', cinematicMovesMany?.id, 'view' ]">{{cinematicMovesMany.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Quick Moves Many</span></dt>
+                <dd>
+                    <span *ngFor="let quickMovesMany of pokemon.quickMovesManies; let last = last">
+                        <a [routerLink]="['/quick-moves', quickMovesMany?.id, 'view' ]">{{quickMovesMany.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Family</span></dt>
+                <dd>
+                    <div *ngIf="pokemon.family">
+                        <a [routerLink]="['/family', pokemon.family?.id, 'view']">{{pokemon.family?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Form Many</span></dt>
+                <dd>
+                    <span *ngFor="let formMany of pokemon.formManies; let last = last">
+                        <a [routerLink]="['/form', formMany?.id, 'view' ]">{{formMany.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pokemon', pokemon.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

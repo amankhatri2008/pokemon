@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span>Encounters</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-encounter" [routerLink]="['/encounter/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Encounter
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="encounters?.length === 0">
+        <span>No encounters found</span>
+    </div>
+    <div class="table-responsive" *ngIf="encounters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="attackProbability"><span>Attack Probability</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="attackTimer"><span>Attack Timer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="baseFleeRate"><span>Base Flee Rate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="baseCaptureRate"><span>Base Capture Rate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cameraDistance"><span>Camera Distance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="collisionRadius"><span>Collision Radius</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dodgeDistance"><span>Dodge Distance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dodgeProbability"><span>Dodge Probability</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="jumpTime"><span>Jump Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="maxPokemonActionFrequency"><span>Max Pokemon Action Frequency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="minPokemonActionFrequency"><span>Min Pokemon Action Frequency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="encounterType.name"><span>Encounter Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="gender.id"><span>Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let encounter of encounters ;trackBy: trackId">
+                <td><a [routerLink]="['/encounter', encounter.id, 'view' ]">{{encounter.id}}</a></td>
+                <td>{{encounter.attackProbability}}</td>
+                <td>{{encounter.attackTimer}}</td>
+                <td>{{encounter.baseFleeRate}}</td>
+                <td>{{encounter.baseCaptureRate}}</td>
+                <td>{{encounter.cameraDistance}}</td>
+                <td>{{encounter.collisionRadius}}</td>
+                <td>{{encounter.dodgeDistance}}</td>
+                <td>{{encounter.dodgeProbability}}</td>
+                <td>{{encounter.jumpTime}}</td>
+                <td>{{encounter.maxPokemonActionFrequency}}</td>
+                <td>{{encounter.minPokemonActionFrequency}}</td>
+                <td>
+                    <div *ngIf="encounter.encounterType">
+                        <a [routerLink]="['/encounter-type', encounter.encounterType?.id, 'view' ]" >{{encounter.encounterType?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="encounter.gender">
+                        <a [routerLink]="['/gender', encounter.gender?.id, 'view' ]" >{{encounter.gender?.malePercent}}-{{encounter.gender?.femalePercent}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/encounter', encounter.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/encounter', encounter.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(encounter)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="encounters?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

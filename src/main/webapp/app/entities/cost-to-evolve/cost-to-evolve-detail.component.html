@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="costToEvolve">
+            <h2><span>Cost To Evolve</span> {{costToEvolve.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Candy Cost</span></dt>
+                <dd>
+                    <span>{{costToEvolve.candyCost}}</span>
+                </dd>
+                <dt><span>Km Buddy Distance</span></dt>
+                <dd>
+                    <span>{{costToEvolve.kmBuddyDistance}}</span>
+                </dd>
+                <dt><span>Evolution Type</span></dt>
+                <dd>
+                    <div *ngIf="costToEvolve.evolutionType">
+                        <a [routerLink]="['/evolution-type', costToEvolve.evolutionType?.id, 'view']">{{costToEvolve.evolutionType?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cost-to-evolve', costToEvolve.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

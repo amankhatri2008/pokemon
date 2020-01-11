@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+
+    "fields": [
+       
+		{
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+		{
+            "fieldName": "nameId",
+            "fieldType": "String"
+        }
+       
+    ],
+    "changelogDate": "20201605045112",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "types",
+    "pagination": "pagination",
+    "microserviceName": "Pokemon",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

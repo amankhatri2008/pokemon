@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity UserPokemon.
+    -->
+    <changeSet id="20200110140512-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_pokemon_id"
+                                 baseTableName="user_pokemon_user_many"
+                                 constraintName="fk_user_pokemon_user_many_user_pokemon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_pokemon"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_many_id"
+                                 baseTableName="user_pokemon_user_many"
+                                 constraintName="fk_user_pokemon_user_many_user_many_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="user_pokemon_id"
+                                 baseTableName="user_pokemon_pokemon_many"
+                                 constraintName="fk_user_pokemon_pokemon_many_user_pokemon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_pokemon"/>
+
+        <addForeignKeyConstraint baseColumnNames="pokemon_many_id"
+                                 baseTableName="user_pokemon_pokemon_many"
+                                 constraintName="fk_user_pokemon_pokemon_many_pokemon_many_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pokemon"/>
+        
+    </changeSet>
+</databaseChangeLog>

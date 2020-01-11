@@ -1,0 +1,176 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pokemon-heading">Create or edit a Pokemon</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime0">Animation Time 0</label>
+                    <input type="number" class="form-control" name="animationTime0" id="field_animationTime0"
+                           formControlName="animationTime0"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime1">Animation Time 1</label>
+                    <input type="number" class="form-control" name="animationTime1" id="field_animationTime1"
+                           formControlName="animationTime1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime2">Animation Time 2</label>
+                    <input type="number" class="form-control" name="animationTime2" id="field_animationTime2"
+                           formControlName="animationTime2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime3">Animation Time 3</label>
+                    <input type="number" class="form-control" name="animationTime3" id="field_animationTime3"
+                           formControlName="animationTime3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime4">Animation Time 4</label>
+                    <input type="number" class="form-control" name="animationTime4" id="field_animationTime4"
+                           formControlName="animationTime4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime5">Animation Time 5</label>
+                    <input type="number" class="form-control" name="animationTime5" id="field_animationTime5"
+                           formControlName="animationTime5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime6">Animation Time 6</label>
+                    <input type="number" class="form-control" name="animationTime6" id="field_animationTime6"
+                           formControlName="animationTime6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime7">Animation Time 7</label>
+                    <input type="number" class="form-control" name="animationTime7" id="field_animationTime7"
+                           formControlName="animationTime7"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animationTime8">Animation Time 8</label>
+                    <input type="number" class="form-control" name="animationTime8" id="field_animationTime8"
+                           formControlName="animationTime8"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                           formControlName="height"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modelHeight">Model Height</label>
+                    <input type="number" class="form-control" name="modelHeight" id="field_modelHeight"
+                           formControlName="modelHeight"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_kmBuddyDistance">Km Buddy Distance</label>
+                    <input type="number" class="form-control" name="kmBuddyDistance" id="field_kmBuddyDistance"
+                           formControlName="kmBuddyDistance"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                           formControlName="weight"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modelScale">Model Scale</label>
+                    <input type="number" class="form-control" name="modelScale" id="field_modelScale"
+                           formControlName="modelScale"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maxCP">Max CP</label>
+                    <input type="number" class="form-control" name="maxCP" id="field_maxCP"
+                           formControlName="maxCP"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cylinderGround">Cylinder Ground</label>
+                    <input type="number" class="form-control" name="cylinderGround" id="field_cylinderGround"
+                           formControlName="cylinderGround"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cylinderRadius">Cylinder Radius</label>
+                    <input type="number" class="form-control" name="cylinderRadius" id="field_cylinderRadius"
+                           formControlName="cylinderRadius"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_diskRadius">Disk Radius</label>
+                    <input type="number" class="form-control" name="diskRadius" id="field_diskRadius"
+                           formControlName="diskRadius"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_key">Key</label>
+                    <input type="text" class="form-control" name="key" id="field_key"
+                           formControlName="key"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cinematicMovesId">Cinematic Moves Id</label>
+                    <input type="number" class="form-control" name="cinematicMovesId" id="field_cinematicMovesId"
+                           formControlName="cinematicMovesId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_baseAttack">Base Attack</label>
+                    <input type="number" class="form-control" name="baseAttack" id="field_baseAttack"
+                           formControlName="baseAttack"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_baseDefense">Base Defense</label>
+                    <input type="number" class="form-control" name="baseDefense" id="field_baseDefense"
+                           formControlName="baseDefense"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_baseStamina">Base Stamina</label>
+                    <input type="number" class="form-control" name="baseStamina" id="field_baseStamina"
+                           formControlName="baseStamina"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_buddySize">Buddy Size</label>
+                    <select class="form-control" id="field_buddySize" name="buddySize" formControlName="buddySize">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buddySizeOption.id === editForm.get('buddySize')!.value?.id ? editForm.get('buddySize')!.value : buddySizeOption" *ngFor="let buddySizeOption of buddysizes; trackBy: trackById">{{buddySizeOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_cinematicMovesManies">Cinematic Moves Many</label>
+                    <select class="form-control" id="field_cinematicMovesManies" multiple name="cinematicMovesManies" formControlName="cinematicMovesManies">
+                        <option [ngValue]="getSelected(editForm.get('cinematicMovesManies')!.value, cinematicMovesOption)" *ngFor="let cinematicMovesOption of cinematicmoves; trackBy: trackById">{{cinematicMovesOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_quickMovesManies">Quick Moves Many</label>
+                    <select class="form-control" id="field_quickMovesManies" multiple name="quickMovesManies" formControlName="quickMovesManies">
+                        <option [ngValue]="getSelected(editForm.get('quickMovesManies')!.value, quickMovesOption)" *ngFor="let quickMovesOption of quickmoves; trackBy: trackById">{{quickMovesOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_family">Family</label>
+                    <select class="form-control" id="field_family" name="family" formControlName="family">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="familyOption.id === editForm.get('family')!.value?.id ? editForm.get('family')!.value : familyOption" *ngFor="let familyOption of families; trackBy: trackById">{{familyOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_formManies">Form Many</label>
+                    <select class="form-control" id="field_formManies" multiple name="formManies" formControlName="formManies">
+                        <option [ngValue]="getSelected(editForm.get('formManies')!.value, formOption)" *ngFor="let formOption of forms; trackBy: trackById">{{formOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

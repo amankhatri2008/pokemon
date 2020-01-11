@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "userMany",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "UserRelation",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pokemon"
+        },
+		{
+            "relationshipName": "pokemonMany",
+            "otherEntityName": "pokemon",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "pokemonRelation",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pokemon"
+        }
+        
+		
+    ],
+   
+    "changelogDate": "20200110140512",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "user_pokemon",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

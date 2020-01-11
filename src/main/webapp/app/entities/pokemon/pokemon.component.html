@@ -1,0 +1,145 @@
+<div>
+    <h2 id="page-heading">
+        <span>Pokemons</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pokemon" [routerLink]="['/pokemon/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Pokemon
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="pokemons?.length === 0">
+        <span>No pokemons found</span>
+    </div>
+    <div class="table-responsive" *ngIf="pokemons?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+                <th scope="col"  ></th>
+                <th scope="col"  ></th>
+                <th scope="col" colspan="8" >Animation Time</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
+            </tr>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime0"><span>0</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime1"><span>1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime2"><span>2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime3"><span>3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime4"><span>4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime5"><span>5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime6"><span>6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime7"><span>7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="animationTime8"><span>8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="height"><span>Height</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="modelHeight"><span>Model Height</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="kmBuddyDistance"><span>Km Buddy Distance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="weight"><span>Weight</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="modelScale"><span>Model Scale</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="maxCP"><span>Max CP</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cylinderGround"><span>Cylinder Ground</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cylinderRadius"><span>Cylinder Radius</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diskRadius"><span>Disk Radius</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="key"><span>Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cinematicMovesId"><span>Cinematic Moves Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="baseAttack"><span>Base Attack</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="baseDefense"><span>Base Defense</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="baseStamina"><span>Base Stamina</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="buddySize.name"><span>Buddy Size</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="family.name"><span>Family</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pokemon of pokemons ;trackBy: trackId">
+                <td><a [routerLink]="['/pokemon', pokemon.id, 'view' ]">{{pokemon.id}}</a></td>
+                <td>{{pokemon.name}}</td>
+                <td>{{pokemon.animationTime0}}</td>
+                <td>{{pokemon.animationTime1}}</td>
+                <td>{{pokemon.animationTime2}}</td>
+                <td>{{pokemon.animationTime3}}</td>
+                <td>{{pokemon.animationTime4}}</td>
+                <td>{{pokemon.animationTime5}}</td>
+                <td>{{pokemon.animationTime6}}</td>
+                <td>{{pokemon.animationTime7}}</td>
+                <td>{{pokemon.animationTime8}}</td>
+                <td>{{pokemon.height}}</td>
+                <td>{{pokemon.modelHeight}}</td>
+                <td>{{pokemon.kmBuddyDistance}}</td>
+                <td>{{pokemon.weight}}</td>
+                <td>{{pokemon.modelScale}}</td>
+                <td>{{pokemon.maxCP}}</td>
+                <td>{{pokemon.cylinderGround}}</td>
+                <td>{{pokemon.cylinderRadius}}</td>
+                <td>{{pokemon.diskRadius}}</td>
+                <td>{{pokemon.key}}</td>
+                <td><span *ngFor="let cinematicMovesMany of pokemon.cinematicMovesManies; let last = last">
+                        <a [routerLink]="['/cinematic-moves', cinematicMovesMany?.id, 'view' ]">{{cinematicMovesMany.name}}</a>{{last ? '' : ', '}}
+                    </span></td>
+                <td>{{pokemon.baseAttack}}</td>
+                <td>{{pokemon.baseDefense}}</td>
+                <td>{{pokemon.baseStamina}}</td>
+                <td>
+                    <div *ngIf="pokemon.buddySize">
+                        <a [routerLink]="['/buddy-size', pokemon.buddySize?.id, 'view' ]" >{{pokemon.buddySize?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pokemon.family">
+                        <a [routerLink]="['/family', pokemon.family?.id, 'view' ]" >{{pokemon.family?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/pokemon', pokemon.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pokemon', pokemon.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(pokemon)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="pokemons?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

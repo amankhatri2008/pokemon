@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "encounterType",
+            "otherEntityName": "encounterType",
+            "otherEntityField": "name"
+        },
+		{
+            "relationshipType": "many-to-one",
+            "relationshipName": "gender",
+            "otherEntityName": "gender",
+            "otherEntityField": "id"
+        }
+
+		
+        
+    ],
+    "fields": [
+        {
+            "fieldName": "attackProbability",
+            "fieldType": "Float"
+        },
+		{
+            "fieldName": "attackTimer",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "baseFleeRate",
+            "fieldType": "Float"
+        },
+        {
+             "fieldName": "baseCaptureRate",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "cameraDistance",
+            "fieldType": "Float"
+        },
+		{
+            "fieldName": "collisionRadius",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dodgeDistance",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dodgeProbability",
+            "fieldType": "Float"
+        },
+		{
+            "fieldName": "jumpTime",
+            "fieldType": "Float"
+        },
+		{
+            "fieldName": "maxPokemonActionFrequency",
+            "fieldType": "Float"
+        },
+		{
+            "fieldName": "minPokemonActionFrequency",
+            "fieldType": "Float"
+        }
+	
+        
+    ],
+    "changelogDate": "20200110140512",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "encounter",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

@@ -1,0 +1,161 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "buddySize",
+            "otherEntityName": "buddySize",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "buddySize"
+        },
+        {
+            "relationshipName": "cinematicMovesMany",
+            "otherEntityName": "cinematicMoves",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "CinematicMovesRelation",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pokemon"
+        },
+		{
+            "relationshipName": "quickMovesMany",
+            "otherEntityName": "quickMoves",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "QuickMovesRelation",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pokemon"
+        },
+		{
+            "relationshipType": "many-to-one",
+            "relationshipName": "family",
+            "otherEntityName": "family",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "family"
+        },
+		{
+            "relationshipName": "formMany",
+            "otherEntityName": "form",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "FormRelation",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pokemon"
+        },
+		{
+            "relationshipName": "userMany",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "UserRelation",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pokemon"
+        }
+		
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "animationTime0",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime1",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime2",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime3",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime4",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime5",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime6",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime7",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "animationTime8",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "modelHeight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "kmBuddyDistance",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "modelScale",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "maxCP",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "cylinderGround",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "cylinderRadius",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "diskRadius",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "key",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cinematicMovesId",
+            "fieldType": "Integer"
+        },
+		{
+            "fieldName": "baseAttack",
+            "fieldType": "Integer"
+        },
+		{
+            "fieldName": "baseDefense",
+            "fieldType": "Integer"
+        },
+		{
+            "fieldName": "baseStamina",
+            "fieldType": "Integer"
+        }
+			
+		
+    ],
+    "changelogDate": "20200110140512",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "pokemon",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

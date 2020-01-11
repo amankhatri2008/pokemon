@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Pokemon.
+    -->
+    <changeSet id="20200110140512-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="buddy_size_id"
+                                 baseTableName="pokemon"
+                                 constraintName="fk_pokemon_buddy_size_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="buddy_size"/>
+
+        <addForeignKeyConstraint baseColumnNames="pokemon_id"
+                                 baseTableName="pokemon_cinematic_moves_many"
+                                 constraintName="fk_pokemon_cinematic_moves_many_pokemon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pokemon"/>
+
+        <addForeignKeyConstraint baseColumnNames="cinematic_moves_many_id"
+                                 baseTableName="pokemon_cinematic_moves_many"
+                                 constraintName="fk_pokemon_cinematic_moves_many_cinematic_moves_many_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cinematic_moves"/>
+        
+        <addForeignKeyConstraint baseColumnNames="pokemon_id"
+                                 baseTableName="pokemon_quick_moves_many"
+                                 constraintName="fk_pokemon_quick_moves_many_pokemon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pokemon"/>
+
+        <addForeignKeyConstraint baseColumnNames="quick_moves_many_id"
+                                 baseTableName="pokemon_quick_moves_many"
+                                 constraintName="fk_pokemon_quick_moves_many_quick_moves_many_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quick_moves"/>
+        
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="pokemon"
+                                 constraintName="fk_pokemon_family_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+
+        <addForeignKeyConstraint baseColumnNames="pokemon_id"
+                                 baseTableName="pokemon_form_many"
+                                 constraintName="fk_pokemon_form_many_pokemon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pokemon"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_many_id"
+                                 baseTableName="pokemon_form_many"
+                                 constraintName="fk_pokemon_form_many_form_many_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="form"/>
+        
+        <addForeignKeyConstraint baseColumnNames="pokemon_id"
+                                 baseTableName="pokemon_user_many"
+                                 constraintName="fk_pokemon_user_many_pokemon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pokemon"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_many_id"
+                                 baseTableName="pokemon_user_many"
+                                 constraintName="fk_pokemon_user_many_user_many_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+    </changeSet>
+</databaseChangeLog>

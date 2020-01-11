@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="encounter">
+            <h2><span>Encounter</span> {{encounter.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Attack Probability</span></dt>
+                <dd>
+                    <span>{{encounter.attackProbability}}</span>
+                </dd>
+                <dt><span>Attack Timer</span></dt>
+                <dd>
+                    <span>{{encounter.attackTimer}}</span>
+                </dd>
+                <dt><span>Base Flee Rate</span></dt>
+                <dd>
+                    <span>{{encounter.baseFleeRate}}</span>
+                </dd>
+                <dt><span>Base Capture Rate</span></dt>
+                <dd>
+                    <span>{{encounter.baseCaptureRate}}</span>
+                </dd>
+                <dt><span>Camera Distance</span></dt>
+                <dd>
+                    <span>{{encounter.cameraDistance}}</span>
+                </dd>
+                <dt><span>Collision Radius</span></dt>
+                <dd>
+                    <span>{{encounter.collisionRadius}}</span>
+                </dd>
+                <dt><span>Dodge Distance</span></dt>
+                <dd>
+                    <span>{{encounter.dodgeDistance}}</span>
+                </dd>
+                <dt><span>Dodge Probability</span></dt>
+                <dd>
+                    <span>{{encounter.dodgeProbability}}</span>
+                </dd>
+                <dt><span>Jump Time</span></dt>
+                <dd>
+                    <span>{{encounter.jumpTime}}</span>
+                </dd>
+                <dt><span>Max Pokemon Action Frequency</span></dt>
+                <dd>
+                    <span>{{encounter.maxPokemonActionFrequency}}</span>
+                </dd>
+                <dt><span>Min Pokemon Action Frequency</span></dt>
+                <dd>
+                    <span>{{encounter.minPokemonActionFrequency}}</span>
+                </dd>
+                <dt><span>Encounter Type</span></dt>
+                <dd>
+                    <div *ngIf="encounter.encounterType">
+                        <a [routerLink]="['/encounter-type', encounter.encounterType?.id, 'view']">{{encounter.encounterType?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Gender</span></dt>
+                <dd>
+                    <div *ngIf="encounter.gender">
+                        <a [routerLink]="['/gender', encounter.gender?.id, 'view']">{{encounter.gender?.malePercent}}-{{encounter.gender?.femalePercent}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/encounter', encounter.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

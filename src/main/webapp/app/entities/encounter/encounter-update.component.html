@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-encounter-heading">Create or edit a Encounter</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_attackProbability">Attack Probability</label>
+                    <input type="number" class="form-control" name="attackProbability" id="field_attackProbability"
+                           formControlName="attackProbability"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_attackTimer">Attack Timer</label>
+                    <input type="number" class="form-control" name="attackTimer" id="field_attackTimer"
+                           formControlName="attackTimer"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_baseFleeRate">Base Flee Rate</label>
+                    <input type="number" class="form-control" name="baseFleeRate" id="field_baseFleeRate"
+                           formControlName="baseFleeRate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_baseCaptureRate">Base Capture Rate</label>
+                    <input type="number" class="form-control" name="baseCaptureRate" id="field_baseCaptureRate"
+                           formControlName="baseCaptureRate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cameraDistance">Camera Distance</label>
+                    <input type="number" class="form-control" name="cameraDistance" id="field_cameraDistance"
+                           formControlName="cameraDistance"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_collisionRadius">Collision Radius</label>
+                    <input type="number" class="form-control" name="collisionRadius" id="field_collisionRadius"
+                           formControlName="collisionRadius"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dodgeDistance">Dodge Distance</label>
+                    <input type="number" class="form-control" name="dodgeDistance" id="field_dodgeDistance"
+                           formControlName="dodgeDistance"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dodgeProbability">Dodge Probability</label>
+                    <input type="number" class="form-control" name="dodgeProbability" id="field_dodgeProbability"
+                           formControlName="dodgeProbability"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_jumpTime">Jump Time</label>
+                    <input type="number" class="form-control" name="jumpTime" id="field_jumpTime"
+                           formControlName="jumpTime"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maxPokemonActionFrequency">Max Pokemon Action Frequency</label>
+                    <input type="number" class="form-control" name="maxPokemonActionFrequency" id="field_maxPokemonActionFrequency"
+                           formControlName="maxPokemonActionFrequency"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_minPokemonActionFrequency">Min Pokemon Action Frequency</label>
+                    <input type="number" class="form-control" name="minPokemonActionFrequency" id="field_minPokemonActionFrequency"
+                           formControlName="minPokemonActionFrequency"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_encounterType">Encounter Type</label>
+                    <select class="form-control" id="field_encounterType" name="encounterType" formControlName="encounterType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="encounterTypeOption.id === editForm.get('encounterType')!.value?.id ? editForm.get('encounterType')!.value : encounterTypeOption" *ngFor="let encounterTypeOption of encountertypes; trackBy: trackById">{{encounterTypeOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gender">Gender</label>
+                    <select class="form-control" id="field_gender" name="gender" formControlName="gender">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="genderOption.id === editForm.get('gender')!.value?.id ? editForm.get('gender')!.value : genderOption" *ngFor="let genderOption of genders; trackBy: trackById">{{genderOption.malePercent}}-{{genderOption.femalePercent}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

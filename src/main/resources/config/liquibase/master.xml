@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="clob" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201605045112_added_entity_Types.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109133758_added_entity_BuddySize.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20200109134047_added_entity_QuickMoves.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109134223_added_entity_Family.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109134650_added_entity_Gender.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109134821_added_entity_Form.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109140104_added_entity_Branchs.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109140512_added_entity_EncounterType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110140512_added_entity_Encounter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110123346_added_entity_EvolutionType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110140512_added_entity_CostToEvolve.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20200119133936_added_entity_CinematicMoves.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110140512_added_entity_Pokemon.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110140512_added_entity_UserPokemon.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200110140512_added_entity_constraints_Encounter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110140512_added_entity_constraints_CostToEvolve.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20200110140512_added_entity_constraints_Pokemon.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200110140512_added_entity_constraints_UserPokemon.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>
